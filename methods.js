@@ -7,9 +7,9 @@ app.use(express.json());
 app.listen(3000);
 
 let users = {};
-app.get('/users',(req,res)=>{
-	res.send(users);
-})
+// app.get('/users',(req,res)=>{
+// 	res.send(users);
+// })
 
 app.post('/users',(req,res)=>{
 	console.log(req.body);
@@ -40,4 +40,15 @@ app.delete('/users',(req,res)=>{
 		
 	})
 
+})
+
+app.get('/users/:id',(req,res)=>{
+	res.send("user id is recived");
+	console.log(req.params.id);
+})
+
+app.get('/users',(req,res)=>{
+
+	console.log(req.query);
+	res.send(users);
 })
